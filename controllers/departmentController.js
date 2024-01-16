@@ -10,6 +10,16 @@ exports.newDepartment = async (req, res) => {
   }
 };
 
+exports.getDepartments = async (req, res, next) => {
+  try {
+    const department = await Department.find({});
+    res.send(department);
+  } catch (error) {
+    res.status(400).send(error.message);
+    next();
+  }
+};
+
 exports.getIdDepartment = async (req, res, next) => {
   const department = await Department.findById(req.params.id);
   try {
