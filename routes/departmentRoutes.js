@@ -1,9 +1,8 @@
 const Router = require("express");
+const departmentController = require("../controllers/departmentController");
 
 const router = Router();
 
-router.get("/", (req, res) =>{
-  console.log("conectado")
-})
+router.post("/newdep", departmentController.newDepartment)
 
 module.exports = router;
