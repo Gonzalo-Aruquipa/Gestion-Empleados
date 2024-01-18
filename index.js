@@ -5,6 +5,7 @@ const depRoutes = require("./routes/departmentRoutes");
 const userRoutes = require("./routes/userRoutes");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const morgan = require("morgan");
 const dotenv = require("dotenv");
 dotenv.config({ path: ".env" });
 
@@ -14,6 +15,7 @@ mongoose.Promise = global.Promise;
 mongoose.connect(DB_URL);
 
 const app = express();
+app.use(morgan("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
