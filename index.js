@@ -12,7 +12,7 @@ dotenv.config({ path: ".env" });
 const { DB_URL } = process.env;
 
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb+srv://root:4556@cluster0.n5lowos.mongodb.net/gestion");
+mongoose.connect(DB_URL);
 
 const app = express();
 app.use(morgan("dev"));
